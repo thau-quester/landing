@@ -53,7 +53,7 @@ jobs:
         yarn build
 
         tar -czvf landing.tar.gz build/
-        gsutil cp target/thau-${MVN_VERSION}.jar gs://thau/packages/landing-latest.jar
+        gsutil cp landing.tar.gz gs://thau/packages/landing-latest.tar.gz
 
   deploy:
     runs-on: ubuntu-latest
