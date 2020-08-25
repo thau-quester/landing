@@ -6,7 +6,6 @@ import {
   ButtonGroup,
   Button,
   Display,
-  Row,
   Link,
 } from '@geist-ui/react'
 import Header from 'app/components/Header'
