@@ -21,6 +21,7 @@ import {
   useLoginWithPassword,
   useCreateUserWithPassword,
   useLogout,
+  useLoginWithGoogle,
 } from 'thau-react'
 import { ThauError, Session, User } from 'thau-js'
 import AlertCircle from '@geist-ui/react-icons/alertCircle'
@@ -75,26 +76,26 @@ const LoginWithProviders = ({
   googleLogin,
   loginWithGoogle,
 }: LoginWithProvidersProps) => (
-  <>
-    <Button
-      loading={fbLogin.loading}
-      onClick={loginWithFacebook}
-      icon={<Facebook />}
-      type="success"
-    >
-      Facebook
+    <>
+      <Button
+        loading={fbLogin.loading}
+        onClick={loginWithFacebook}
+        icon={<Facebook />}
+        type="success"
+      >
+        Facebook
     </Button>
-    <Spacer y={0.5} />
-    <Button
-      loading={googleLogin.loading}
-      onClick={loginWithGoogle}
-      icon={<Text>G</Text>}
-      type="error"
-    >
-      Google
+      <Spacer y={0.5} />
+      <Button
+        loading={googleLogin.loading}
+        onClick={loginWithGoogle}
+        icon={<Text>G</Text>}
+        type="error"
+      >
+        Google
     </Button>
-  </>
-)
+    </>
+  )
 
 export type PasswordLoginFormProps = {
   passwordLoginState: PasswordLoginState
@@ -109,39 +110,39 @@ const PasswordLoginForm = ({
   passwordLogin,
   loginWithPassword,
 }: PasswordLoginFormProps) => (
-  <>
-    <Input
-      onChange={handlePasswordLoginChange}
-      icon={<Eye />}
-      placeholder="Email"
-      required
-      type="email"
-      name="email"
-    />
-    <Spacer y={0.5} />
-    <Input
-      onChange={handlePasswordLoginChange}
-      icon={<Lock />}
-      placeholder="Password"
-      required
-      type="password"
-      name="password"
-    />
-    <Spacer y={0.5} />
-    <Button
-      size="medium"
-      type="success"
-      ghost
-      loading={passwordLogin.loading}
-      disabled={!passwordLoginState.email || !passwordLoginState.password}
-      onClick={() =>
-        loginWithPassword(passwordLoginState.email, passwordLoginState.password)
-      }
-    >
-      Sign in
+    <>
+      <Input
+        onChange={handlePasswordLoginChange}
+        icon={<Eye />}
+        placeholder="Email"
+        required
+        type="email"
+        name="email"
+      />
+      <Spacer y={0.5} />
+      <Input
+        onChange={handlePasswordLoginChange}
+        icon={<Lock />}
+        placeholder="Password"
+        required
+        type="password"
+        name="password"
+      />
+      <Spacer y={0.5} />
+      <Button
+        size="medium"
+        type="success"
+        ghost
+        loading={passwordLogin.loading}
+        disabled={!passwordLoginState.email || !passwordLoginState.password}
+        onClick={() =>
+          loginWithPassword(passwordLoginState.email, passwordLoginState.password)
+        }
+      >
+        Sign in
     </Button>
-  </>
-)
+    </>
+  )
 
 export type UserCreateFormProps = {
   userCreation: LoginState
@@ -155,74 +156,74 @@ const UserCreateForm = ({
   userCreationState,
   handleUserCreationChange,
 }: UserCreateFormProps) => (
-  <>
-    <Input
-      onChange={handleUserCreationChange}
-      icon={<Eye />}
-      placeholder="Email *"
-      required
-      type="email"
-      name="email"
-    />
-    <Spacer y={0.5} />
-    <Input
-      onChange={handleUserCreationChange}
-      icon={<Lock />}
-      placeholder="Password *"
-      required
-      type="password"
-      name="password"
-    />
-    <Divider />
-    <Input
-      onChange={handleUserCreationChange}
-      icon={<Spacer />}
-      placeholder="Username"
-      type="text"
-      name="username"
-    />
-    <Spacer y={0.5} />
-    <Input
-      onChange={handleUserCreationChange}
-      icon={<Spacer />}
-      placeholder="First name"
-      type="text"
-      name="firstName"
-    />
-    <Spacer y={0.5} />
-    <Input
-      onChange={handleUserCreationChange}
-      icon={<Spacer />}
-      placeholder="Last name"
-      type="text"
-      name="lastName"
-    />
-    <Spacer y={0.5} />
-    <Button
-      size="medium"
-      type="success"
-      ghost
-      loading={userCreation.loading}
-      disabled={!userCreationState.email || !userCreationState.password}
-      onClick={() =>
-        createUser(
-          {
-            email: userCreationState.email,
-          },
-          userCreationState.password
-        )
-      }
-    >
-      Sign up
+    <>
+      <Input
+        onChange={handleUserCreationChange}
+        icon={<Eye />}
+        placeholder="Email *"
+        required
+        type="email"
+        name="email"
+      />
+      <Spacer y={0.5} />
+      <Input
+        onChange={handleUserCreationChange}
+        icon={<Lock />}
+        placeholder="Password *"
+        required
+        type="password"
+        name="password"
+      />
+      <Divider />
+      <Input
+        onChange={handleUserCreationChange}
+        icon={<Spacer />}
+        placeholder="Username"
+        type="text"
+        name="username"
+      />
+      <Spacer y={0.5} />
+      <Input
+        onChange={handleUserCreationChange}
+        icon={<Spacer />}
+        placeholder="First name"
+        type="text"
+        name="firstName"
+      />
+      <Spacer y={0.5} />
+      <Input
+        onChange={handleUserCreationChange}
+        icon={<Spacer />}
+        placeholder="Last name"
+        type="text"
+        name="lastName"
+      />
+      <Spacer y={0.5} />
+      <Button
+        size="medium"
+        type="success"
+        ghost
+        loading={userCreation.loading}
+        disabled={!userCreationState.email || !userCreationState.password}
+        onClick={() =>
+          createUser(
+            {
+              email: userCreationState.email,
+            },
+            userCreationState.password
+          )
+        }
+      >
+        Sign up
     </Button>
-  </>
-)
+    </>
+  )
 
 export default () => {
   const { loading, error, session } = useSession()
   const [userCreation, createUser] = useCreateUserWithPassword()
   const [fbLogin, loginWithFacebook] = useLoginWithFacebook()
-  const [googleLogin, loginWithGoogle] = useLoginWithFacebook()
+  const [googleLogin, loginWithGoogle] = useLoginWithGoogle()
   const [passwordLogin, loginWithPassword] = useLoginWithPassword()
   const [, logout] = useLogout()
 
@@ -312,8 +313,8 @@ export default () => {
                   Error: {signInError.message} [{signInError.status}]
                 </Text>
               ) : (
-                <Spacer y={2.7} />
-              )}
+                  <Spacer y={2.7} />
+                )}
             </Grid>
             <Grid>
               <LoginWithProviders
@@ -343,8 +344,8 @@ export default () => {
                   Error: {signUpError.message} [{signUpError.status}]
                 </Text>
               ) : (
-                <Spacer y={2.7} />
-              )}
+                  <Spacer y={2.7} />
+                )}
             </Grid>
             <Grid>
               <LoginWithProviders
