@@ -11,8 +11,12 @@ on:
       - '**/*.js'
       - '**/*.yml'
   pull_request:
-    branches:
-      - master
+    paths:
+      - '**/*.ts'
+      - '**/*.tsx'
+      - '**/*.json'
+      - '**/*.js'
+      - '**/*.yml'
 
 jobs:
   test:
