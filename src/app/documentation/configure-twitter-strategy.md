@@ -23,6 +23,6 @@ Now you are ready to go for Twitter strategy with Thau!
 
 ### Integrate Twitter into your Thau deployment
 
-3. Copy the value of `API Key` into the `THAU_STRATEGIES_TWITTER_CLIENT_ID` environment variable
-4. Copy the value of `API secret key` into the `THAU_STRATEGIES_TWITTER_CLIENT_SECRET` environment variable
-5. Run Thau API
+1. Copy the value of `API Key` into the `THAU_STRATEGIES_TWITTER_CLIENT_ID` environment variable
+2. Copy the value of `API secret key` into the `THAU_STRATEGIES_TWITTER_CLIENT_SECRET` environment variable
+3. Run Thau API

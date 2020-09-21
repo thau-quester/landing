@@ -18,6 +18,6 @@ Now you are ready to go for GitHub strategy with Thau!
 
 ### Integrate GitHub into your Thau deployment
 
-3. Copy the value of `Client ID` into the `THAU_STRATEGIES_GITHUB_CLIENT_ID` environment variable
-4. Copy the value of `Client Secret` into the `THAU_STRATEGIES_GITHUB_CLIENT_SECRET` environment variable
-5. Run Thau API
+1. Copy the value of `Client ID` into the `THAU_STRATEGIES_GITHUB_CLIENT_ID` environment variable
+2. Copy the value of `Client Secret` into the `THAU_STRATEGIES_GITHUB_CLIENT_SECRET` environment variable
+3. Run Thau API
